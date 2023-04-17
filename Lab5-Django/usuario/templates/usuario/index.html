@@ -16,16 +16,31 @@
       }
       h1 {
         color: green;
+        margin-bottom: 20px; /* agregar un margen inferior de 20px */
+      }
+      h2 {
+        margin-top: 20px; /* agregar un margen superior de 20px */
+        margin-left: 10px;
+      }
+      ul {
+        margin-left: 20px;
       }
     </style>
   </head>
   <body>
       <h1>Sitio de Films</h1>
+      <h2>Opciones</h2>
+      
     <div class="columnas">
       <div class="columna-izquierda">
-        <a href="{%url 'login' %}">Entrar</a>
-        <br>
-        <a href="{%url 'register' %}">Register</a>
+        <ul>
+          <li>
+            <a href="{%url 'login' %}">Entrar</a>
+          </li>
+          <li>
+            <a href="{%url 'register' %}">Register</a>
+          </li>
+        </ul>
       </div>
       <div class="columna-derecha">
             {% block content %}
