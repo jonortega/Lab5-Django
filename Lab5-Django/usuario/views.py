@@ -29,7 +29,7 @@ def login(request):
 			if user is not None:
 				auth_login(request, user)
 				messages.info(request, f"You are now logged in as {username}.")
-				return redirect('home')
+				return redirect('logeado')
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:

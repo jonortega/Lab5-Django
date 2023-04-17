@@ -55,7 +55,11 @@
     <Compile Include="usuario\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="films\templates\films\aficionados.html" />
+    <Content Include="films\templates\films\home.html" />
     <Content Include="films\templates\films\index.html" />
+    <Content Include="films\templates\films\verPelis.html" />
+    <Content Include="films\templates\films\votar.html" />
     <Content Include="requirements.txt" />
     <Content Include="usuario\templates\usuario\home.html" />
     <Content Include="usuario\templates\usuario\index.html" />

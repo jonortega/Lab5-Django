@@ -1,9 +1,55 @@
+<!DOCTYPE html>
 <html>
-<head><title></title></head>
-
-<body>
-
-{{ content }}
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sitio de Films</title>
+    <style>
+      .columnas {
+        display: flex;
+        flex-direction: row;
+      }
+      .columna-izquierda {
+        flex: 1;
+      }
+      .columna-derecha {
+        flex: 4;
+      }
+      h1 {
+        color: green;
+        margin-bottom: 20px; /* agregar un margen inferior de 20px */
+      }
+      h2 {
+        margin-top: 20px; /* agregar un margen superior de 20px */
+        margin-left: 10px;
+      }
+      ul {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+      <h1>Sitio de Films</h1>
+      <h2>Opciones</h2>
+      
+    <div class="columnas">
+      <div class="columna-izquierda">
+        <ul>
+          <li>
+            <a href="{%url 'verPelis' %}">Ver peliculas</a>
+          </li>
+          <li>
+            <a href="{%url 'votar' %}">Votar</a>
+          </li>
+          <li>
+              <a href="{%url 'aficionados' %}">Aficionados</a>
+          </li>
+        </ul>
+        <a href="{%url 'logout' %}">CERRAR SESION</a>
+      </div>
+      <div class="columna-derecha">
+            {% block content %}
+            {% endblock %}
+      </div>
+    </div>
+  </body>
 </html>
