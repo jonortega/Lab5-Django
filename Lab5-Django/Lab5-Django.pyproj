@@ -59,6 +59,7 @@
     <Content Include="requirements.txt" />
     <Content Include="usuario\templates\usuario\home.html" />
     <Content Include="usuario\templates\usuario\index.html" />
+    <Content Include="usuario\templates\usuario\login.html" />
     <Content Include="usuario\templates\usuario\register.html" />
   </ItemGroup>
   <ItemGroup>
