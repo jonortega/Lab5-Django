@@ -23,5 +23,6 @@ import usuario.views
 
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
-    url(r'^$', usuario.views.register_request, name='register')
+    url(r'^$', usuario.views.home, name='home'),
+    url(r'^/register', usuario.views.register_request, name='register'),
 ]

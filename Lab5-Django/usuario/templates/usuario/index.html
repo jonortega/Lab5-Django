@@ -1,9 +1,33 @@
+<!DOCTYPE html>
 <html>
-<head><title></title></head>
-
-<body>
-    HOLA
-{{ content }}
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dos columnas con enlaces</title>
+    <style>
+      .columnas {
+        display: flex;
+        flex-direction: row;
+      }
+      .columna-izquierda {
+        flex: 1;
+      }
+      .columna-derecha {
+        flex: 4;
+      }
+    </style>
+  </head>
+  <body>
+      <h1> Zona Peliculas </h1>
+    <div class="columnas">
+      <div class="columna-izquierda">
+        <a href="{%url 'home' %}">Entrar</a>
+        <br>
+        <a href="{%url 'register' %}">Register</a>
+      </div>
+      <div class="columna-derecha">
+            {% block content %}
+            {% endblock %}
+      </div>
+    </div>
+  </body>
 </html>
