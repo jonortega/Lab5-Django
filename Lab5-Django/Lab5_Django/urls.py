@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^verPelis', films.views.verPelis, name='verPelis'),
     url(r'^verVotar', films.views.verVotar, name='verVotar'),
     url(r'^votar', films.views.votar, name='votar'),
+    url(r'^verAficionados', films.views.verAficionados, name='verAficionados'),
     url(r'^aficionados', films.views.aficionados, name='aficionados'),
 ]

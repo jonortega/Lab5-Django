@@ -55,8 +55,19 @@ def votar(request):
     return render(request, 'films/votar.html', {'filmak': filmak, 'mensaje':mensaje, 'dominio':dominio})
 
 
-
-
+def verAficionados(request):
+    filmak = Filma.objects.all()
+    principio = False
+    return render(request, 'films/aficionados.html', {'filmak': filmak, 'principio': principio})
 
 def aficionados(request):
-    return render(request, 'films/aficionados.html')
+    if request.method == 'POST':
+        filma_id = request.POST.get('filma_id')
+        filma = get_object_or_404(Filma, pk=filma_id)
+        votantes = FilmaBozkatzailea.objects.filter(filma=filma)
+        principio = True
+        filmak = Filma.objects.all()
+        return render(request, 'films/aficionados.html', {'filmak': filmak, 'filma': filma, 'votantes': votantes, 'principio': principio})
+    else:
+        filmak = Filma.objects.all()
+        return render(request, 'films/aficionados.html', {'filmak': filmak})

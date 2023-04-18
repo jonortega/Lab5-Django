@@ -2,4 +2,37 @@
 
 {% block content %}
   <h1>Aficionados</h1>
+  <form method="POST" action="{% url 'aficionados' %}">
+    {% csrf_token %}
+    <label for="pelicula">Pelicula:</label>
+    <select id="pelicula" name="filma_id">
+      {% for filma in filmak %}
+        <option value="{{ filma.pk }}">{{ filma.izenburua }}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <button type="submit">Ver aficionados</button>
+  </form>
+  
+  {% if votantes %}
+    <p>Aficionados de {{ filma.izenburua }}:</p>
+    <table style="border-collapse: collapse; border: 1px solid black;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid black;">Usuario</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for votante in votantes %}
+          <tr>
+            <td style="border: 1px solid black;">{{ votante.bozkatzailea.user.username }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    {% if principio %}
+        <p>No hay usuarios que hayan votado por esta pelicula.</p>
+    {% endif %}
+  {% endif %}
 {% endblock %}
