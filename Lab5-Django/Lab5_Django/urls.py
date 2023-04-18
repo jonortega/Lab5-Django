@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^home', films.views.home, name='logeado'),
     url(r'^logout', films.views.logout, name='logout'),
     url(r'^verPelis', films.views.verPelis, name='verPelis'),
+    url(r'^verVotar', films.views.verVotar, name='verVotar'),
     url(r'^votar', films.views.votar, name='votar'),
     url(r'^aficionados', films.views.aficionados, name='aficionados'),
 ]
