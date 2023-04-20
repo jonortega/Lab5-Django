@@ -1,66 +1,68 @@
-{% extends 'films/index.html' %}
+{% extends 'films/index.html' %} {% block content %}
+<h1>Menu</h1>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 90%;
+  }
 
-{% block content %}
-  <h1>Menu</h1>
-  <style>
-    table {
-      border-collapse: separate;
-      border-spacing: 0;
-    }
-    td {
-        border: 1px solid black;
-        padding: 10px;
-    }
-    th, td {
-      text-align: left;
-      padding: 8px;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-      color: #444;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-  </style>
-  <table>
-    <thead>
-      <tr>
-        <th>Título</th>
-        <th>Director</th>
-        <th>Año</th>
-        <th>Género</th>
-        <th>Sinopsis</th>
-        <th>Votos</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for objeto in objetos_por_pagina %}
-        <tr>
-          <td>{{ objeto.izenburua }}</td>
-          <td>{{ objeto.zuzendaria }}</td>
-          <td>{{ objeto.urtea }}</td>
-          <td>{{ objeto.generoa }}</td>
-          <td>{{ objeto.sinopsia }}</td>
-          <td>{{ objeto.bozkak }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <div class="pagination">
-    <span class="step-links">
-      {% if objetos_por_pagina.has_previous %}
-        <a href="?page={{ objetos_por_pagina.previous_page_number }}">previous</a>
-      {% endif %}
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
 
-      <span class="current">
-        Page {{ objetos_por_pagina.number }} of {{ objetos_por_pagina.paginator.num_pages }}.
-      </span>
+  th {
+    background-color: #1d2152;
+    color: #fff;
+  }
 
-      {% if objetos_por_pagina.has_next %}
-        <a href="?page={{ objetos_por_pagina.next_page_number }}">next</a>
-      {% endif %}
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tbody tr:hover {
+    background-color: #f8e4cd;
+    color: #000000;
+  }
+</style>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Director</th>
+      <th>Año</th>
+      <th>Género</th>
+      <th>Sinopsis</th>
+      <th>Votos</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for objeto in objetos_por_pagina %}
+    <tr>
+      <td>{{ objeto.izenburua }}</td>
+      <td>{{ objeto.zuzendaria }}</td>
+      <td>{{ objeto.urtea }}</td>
+      <td>{{ objeto.generoa }}</td>
+      <td>{{ objeto.sinopsia }}</td>
+      <td>{{ objeto.bozkak }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="pagination">
+  <span class="step-links">
+    {% if objetos_por_pagina.has_previous %}
+    <a href="?page={{ objetos_por_pagina.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ objetos_por_pagina.number }} of {{ objetos_por_pagina.paginator.num_pages }}.
     </span>
-  </div>
+
+    {% if objetos_por_pagina.has_next %}
+    <a href="?page={{ objetos_por_pagina.next_page_number }}">next</a>
+    {% endif %}
+  </span>
+</div>
 {% endblock %}

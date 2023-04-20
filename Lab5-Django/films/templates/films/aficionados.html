@@ -1,38 +1,65 @@
-{% extends 'films/index.html' %}
+{% extends 'films/index.html' %} {% block content %}
+<h1>Aficionados</h1>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 10%;
+  }
 
-{% block content %}
-  <h1>Aficionados</h1>
-  <form method="POST" action="{% url 'aficionados' %}">
-    {% csrf_token %}
-    <label for="pelicula">Pelicula:</label>
-    <select id="pelicula" name="filma_id">
-      {% for filma in filmak %}
-        <option value="{{ filma.pk }}">{{ filma.izenburua }}</option>
-      {% endfor %}
-    </select>
-    <br><br>
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #1d2152;
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tbody tr:hover {
+    background-color: #f8e4cd;
+    color: #000000;
+  }
+
+  p {
+    font-size: 18px;
+  }
+</style>
+<form method="POST" action="{% url 'aficionados' %}">
+  {% csrf_token %}
+  <label for="pelicula">Pelicula:</label>
+  <select id="pelicula" name="filma_id">
+    {% for filma in filmak %}
+    <option value="{{ filma.pk }}">{{ filma.izenburua }}</option>
+    {% endfor %}
+  </select>
+  <br /><br />
+  <div class="aficionados">
     <button type="submit">Ver aficionados</button>
-  </form>
-  
-  {% if votantes %}
-    <p>Aficionados de {{ filma.izenburua }}:</p>
-    <table style="border-collapse: collapse; border: 1px solid black;">
-      <thead>
-        <tr>
-          <th style="border: 1px solid black;">Usuario</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for votante in votantes %}
-          <tr>
-            <td style="border: 1px solid black;">{{ votante.bozkatzailea.user.username }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  {% else %}
-    {% if principio %}
-        <p>No hay usuarios que hayan votado por esta pelicula.</p>
-    {% endif %}
-  {% endif %}
-{% endblock %}
+  </div>
+</form>
+
+{% if votantes %}
+<p>Aficionados de {{ filma.izenburua }}:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for votante in votantes %}
+    <tr>
+      <td>{{ votante.bozkatzailea.user.username }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %} {% if principio %}
+<p>No hay usuarios que hayan votado por esta pelicula.</p>
+{% endif %} {% endif %} {% endblock %}

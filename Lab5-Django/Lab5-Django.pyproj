@@ -65,6 +65,7 @@
     <Content Include="usuario\templates\usuario\index.html" />
     <Content Include="usuario\templates\usuario\login.html" />
     <Content Include="usuario\templates\usuario\register.html" />
+    <Content Include="usuario\templates\usuario\styles.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="films\" />

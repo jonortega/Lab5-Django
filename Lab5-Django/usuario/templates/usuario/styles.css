@@ -1,0 +1,38 @@
+body {
+    background-color: #ffffff;
+    color: #212121;
+}
+
+h1 {
+    color: #ff5722;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+h2 {
+    color: #ff5722;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+a {
+    color: #ff5722;
+}
+
+.columnas {
+    display: flex;
+    flex-direction: row;
+}
+
+.columna-izquierda {
+    flex: 1;
+}
+
+.columna-derecha {
+    flex: 4;
+}

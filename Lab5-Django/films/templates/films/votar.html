@@ -1,18 +1,18 @@
-{% extends 'films/index.html' %}
-
-{% block content %}
-  <h1>Vota tu pelicula favorita</h1>
-  <form method="POST" action="{% url 'votar' %}">
-    {% csrf_token %}
-    <label for="pelicula">Pelicula:</label>
-    <select id="pelicula" name="filma_id">
-      {% for filma in filmak %}
-        <option value="{{ filma.pk }}">{{ filma.izenburua }}</option>
-      {% endfor %}
-    </select>
-    <br><br>
+{% extends 'films/index.html' %} {% block content %}
+<h1>Vota tu pelicula favorita</h1>
+<form method="POST" action="{% url 'votar' %}">
+  {% csrf_token %}
+  <label for="pelicula">Pelicula:</label>
+  <select id="pelicula" name="filma_id">
+    {% for filma in filmak %}
+    <option value="{{ filma.pk }}">{{ filma.izenburua }}</option>
+    {% endfor %}
+  </select>
+  <br /><br />
+  <div class="votar">
     <button type="submit">Votar</button>
-  </form>
-  <div>{{ mensaje }}</div>
-  <div>{{ dominio }}</div>
+  </div>
+</form>
+<div class="mensaje">{{ mensaje }}</div>
+<div class="dominio">{{ dominio }}</div>
 {% endblock %}

@@ -1,38 +1,172 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Sitio de Films</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+
     <style>
+      body {
+        background-color: #ffffff;
+        color: #212121;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .titulo {
+        color: #1d2152;
+        margin-bottom: 20px;
+        font-size: 28px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #1d2152;
+        margin-top: 20px;
+        margin-left: 10px;
+        font-size: 24px;
+      }
+
+      ul {
+        margin-left: 20px;
+        list-style-type: none;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: #1d2152;
+        text-decoration: none;
+        font-size: 18px;
+        border-bottom: 2px solid transparent;
+        transition: border-bottom 0.2s ease-in-out;
+        padding-left: 0;
+      }
+
+      a:hover {
+        border-bottom: 2px solid #ec8107;
+        padding-left: 2px;
+      }
+
+      select {
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .logout {
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 60px;
+        font-size: 22px;
+      }
+
       .columnas {
         display: flex;
         flex-direction: row;
       }
+
       .columna-izquierda {
         flex: 1;
+        border-right: 1px solid #ddd;
+        padding-right: 5px;
       }
+
       .columna-derecha {
         flex: 4;
+        padding-left: 60px;
       }
-      h1 {
-        color: green;
-        margin-bottom: 20px; /* agregar un margen inferior de 20px */
+
+      .columnas::before {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: #ddd;
+        margin-right: 20px;
       }
-      h2 {
-        margin-top: 20px; /* agregar un margen superior de 20px */
-        margin-left: 10px;
+
+      .votar button {
+        background-color: #1d2152;
+        border-color: #1d2152;
+        color: #fff;
+        padding: 10px 30px;
+        height: 3em;
+        width: 8em;
+        border: none;
+        border-radius: 10px;
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.1s ease;
       }
-      ul {
-        margin-left: 20px;
+
+      .votar button:hover {
+        border: 2px solid #ec8107;
+      }
+
+      .votar button:active {
+        background-color: #ec8107;
+        border-color: #ec8107;
+        color: #fff;
+      }
+
+      .aficionados button {
+        background-color: #1d2152;
+        border-color: #1d2152;
+        color: #fff;
+        padding: 10px 30px;
+        height: 4em;
+        width: 11.5em;
+        border: none;
+        border-radius: 10px;
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.1s ease;
+      }
+
+      .aficionados button:hover {
+        border: 2px solid #ec8107;
+      }
+
+      .aficionados button:active {
+        background-color: #ec8107;
+        border-color: #ec8107;
+        color: #fff;
+      }
+
+      .mensaje {
+        font-size: 18px;
+        padding: 20px;
+      }
+
+      .dominio {
+        font-size: 18px;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
+    <div class="titulo">
       <h1>Sitio de Films</h1>
-      <h2>Opciones</h2>
-      
+    </div>
+
     <div class="columnas">
       <div class="columna-izquierda">
+        <h2>Opciones</h2>
         <ul>
           <li>
             <a href="{%url 'verPelis' %}">Ver peliculas</a>
@@ -41,15 +175,14 @@
             <a href="{%url 'verVotar' %}">Votar</a>
           </li>
           <li>
-              <a href="{%url 'aficionados' %}">Aficionados</a>
+            <a href="{%url 'aficionados' %}">Aficionados</a>
           </li>
         </ul>
-        <a href="{%url 'logout' %}">CERRAR SESION</a>
+        <div class="logout">
+          <a href="{%url 'logout' %}">CERRAR SESION</a>
+        </div>
       </div>
-      <div class="columna-derecha">
-            {% block content %}
-            {% endblock %}
-      </div>
+      <div class="columna-derecha">{% block content %} {% endblock %}</div>
     </div>
   </body>
 </html>

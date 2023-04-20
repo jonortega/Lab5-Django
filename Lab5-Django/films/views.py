@@ -46,7 +46,7 @@ def votar(request):
             filma.bozkak += 1
             filma.save()
             mensaje = 'Gracias por tu voto!'
-            dominio = 'Tu boto: '+ filma.izenburua
+            dominio = 'Tu voto: '+ filma.izenburua
         except IntegrityError:
             mensaje = 'Ya has votado antes por esta película.'
             dominio = ''
