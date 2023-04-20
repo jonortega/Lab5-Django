@@ -55,12 +55,14 @@
     <Compile Include="usuario\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="films\static\films\css\estilos.css" />
     <Content Include="films\templates\films\aficionados.html" />
     <Content Include="films\templates\films\home.html" />
     <Content Include="films\templates\films\index.html" />
     <Content Include="films\templates\films\verPelis.html" />
     <Content Include="films\templates\films\votar.html" />
     <Content Include="requirements.txt" />
+    <Content Include="usuario\static\usuario\css\estilos.css" />
     <Content Include="usuario\templates\usuario\home.html" />
     <Content Include="usuario\templates\usuario\index.html" />
     <Content Include="usuario\templates\usuario\login.html" />
@@ -70,11 +72,17 @@
   <ItemGroup>
     <Folder Include="films\" />
     <Folder Include="films\migrations\" />
+    <Folder Include="films\static\" />
+    <Folder Include="films\static\films\" />
+    <Folder Include="films\static\films\css\" />
     <Folder Include="films\templates\" />
     <Folder Include="films\templates\films\" />
     <Folder Include="Lab5_Django\" />
     <Folder Include="usuario\" />
     <Folder Include="usuario\migrations\" />
+    <Folder Include="usuario\static\" />
+    <Folder Include="usuario\static\usuario\" />
+    <Folder Include="usuario\static\usuario\css\" />
     <Folder Include="usuario\templates\" />
     <Folder Include="usuario\templates\usuario\" />
   </ItemGroup>
